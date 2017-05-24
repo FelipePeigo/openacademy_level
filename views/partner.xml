@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+    <!-- Add instructor field to existing view -->
+    <record model="ir.ui.view" id="partner_instructor_form_view_level">
+      <field name="name">partner.instructor.level</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <field name="instructor" position="after">
+            <field name="level" readonly="False"></field>
+          </field>
+      </field>
+    </record>
+  </data>
+</openerp>
