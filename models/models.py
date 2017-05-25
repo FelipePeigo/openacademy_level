@@ -5,7 +5,7 @@ from openerp import models, fields, api, exceptions
 class Course(models.Model):
     _inherit = 'openacademy.course'
 
-    #Add a new column to the openacademy.course model.
+    # Add a new column to the openacademy.course model.
     level = fields.Integer(string="Level", required=True, default=0,
                            readonly=False)
 
