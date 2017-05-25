@@ -6,7 +6,7 @@ class Course(models.Model):
     _inherit = 'openacademy.course'
 
     #Add a new column to the openacademy.course model.
-    level = fields.Integer(string="Level", required=True, default='0',
+    level = fields.Integer(string="Level", required=True, default=0,
                            readonly=False)
 
     @api.constrains('level')
@@ -20,7 +20,7 @@ class Course(models.Model):
 class Partner(models.Model):
     _inherit = 'res.partner'
 
-    level = fields.Integer(string="Level", required=True, default='0',
+    level = fields.Integer(string="Level", required=True, default=0,
                            readonly=False)
 
     @api.constrains('level')
@@ -34,7 +34,7 @@ class Partner(models.Model):
 class Session(models.Model):
     _inherit = 'openacademy.session'
 
-    session_level = fields.Integer(related='course_id.level')
+    session_level = fields.Integer(related='course_id.level', readonly=True)
 
     @api.constrains('instructor_id')
     def _check_level_instructor(self):

@@ -17,8 +17,11 @@
         <field name="model">openacademy.session</field>
         <field name='inherit_id' ref='openacademy.session_form_view'/>
         <field name="arch" type="xml">
+          <field name="active" position="after">
+            <field name="session_level"></field>
+          </field>
           <field name="instructor_id" position="replace">
-            <field name="instructor_id" domain="[('level', '>', 'session_level')]">
+            <field name="instructor_id" domain="[('level', '>=', session_level)]">
             </field>
           </field>
         </field>
